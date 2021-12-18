@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<style type="text/css">
+		.container{
+			width: 600px;
+			height: 500px;
+			background: #eee;
+			overflow: hidden;
+			position: relative;
+			margin: auto;
+		}
+		.car{
+			width: 200px;
+			height: 100px;
+			background: url('car.png') no-repeat center;
+			background-size: cover;
+			position: absolute;
+			transition: all 0.1s;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="car"></div>
+	</div>
+
+	<script type="text/javascript">
+		var x_axis = 0,
+			y_axis = 0;
+
+		document.onkeydown = check_key;
+
+		function check_key(e){
+			e = e || window.event;
+
+			if(e.keyCode == '38'){
+				mov_car("up");
+			}else if(e.keyCode == '40'){
+				mov_car("down");
+			}else if(e.keyCode == '37'){
+				mov_car("left");
+			}else if(e.keyCode == '39'){
+				mov_car("right");
+			}
+		}
+
+		function mov_car(a){
+			if(a == 'right'){
+				x_axis = x_axis + 10;
+				$(".car").css({"transform":"translate("+x_axis+"px,"+y_axis+"px)  rotate(0deg)"});
+			}else if(a == 'left'){
+				x_axis = x_axis - 10;
+				$(".car").css({"transform":"translate("+x_axis+"px,"+y_axis+"px) rotate(180deg)"});
+			}else if(a == 'up'){
+				y_axis = y_axis - 10;
+				$(".car").css({"transform":"translate("+x_axis+"px,"+y_axis+"px)rotate(270deg)"});
+			}else if(a == 'down'){
+				y_axis = y_axis + 10;
+				$(".car").css({"transform":"translate("+x_axis+"px,"+y_axis+"px) rotate(90deg)"});
+			}
+		}
+	</script>
+</body>
+</html>
