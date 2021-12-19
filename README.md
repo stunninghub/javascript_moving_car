@@ -1,4 +1,3 @@
-
 # JavaScript Moving Car
 
 Let's create a animated moving car just using HTML, CSS & JavaScript.
